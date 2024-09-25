@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container text-center mt-5">
+    <div class="row">
+      <div style="background-color: rgb(172, 169, 169); font-weight: bold; border: 1cm;" class="col">
+        Model Number
+      </div>
+      <div style="background-color:  rgb(172, 169, 169); font-weight: bold;" class="col">
+        Model Name
+      </div>
+      <div style="background-color:  rgb(172, 169, 169); font-weight: bold;" class="col">
+        Make
+      </div>
+      <div style="background-color:  rgb(172, 169, 169); font-weight: bold;" class="col">
+        YOM
+      </div>
+      <div style="background-color: rgb(172, 169, 169); font-weight: bold;" class="col">
+        Unit Price (LKR)
+      </div>
+      <div style="background-color:  rgb(172, 169, 169); font-weight: bold;" class="col">
+        Initial Quantity
+      </div>
+      <div style="background-color: rgb(173, 138, 138); font-weight: bold;" class="col">
+        Sold Quantity
+      </div>
+    </div>
+    {% for i in obj %}
+    <div class="row">
+        <div class="col">
+          {{i.model_number}}
+        </div>
+        <div class="col">
+          {{i.model_name}}
+        </div>
+        <div class="col">
+          {{i.make}}
+        </div>
+        <div class="col">
+          {{i.yom}}
+        </div>
+        <div class="col">
+          {{i.unit_price}}
+        </div>
+        <div class="col">
+          {{i.quantity_avl}}
+        </div>
+        <div class="col">
+          {{i.quantity_sold}}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <br>
+  <br>
+
+  <!-- Second Inventory List -->
+   <div class="container text-center" >
+    <div class="row">
+      <div style="background-color: rgb(172, 169, 169); font-weight: bold; border: 1cm;" class="col">
+        Model Number
+      </div>
+      <div style="background-color:  rgb(172, 169, 169); font-weight: bold;" class="col">
+        Model Name
+      </div>
+      <div style="background-color:  rgb(172, 169, 169); font-weight: bold;" class="col">
+        Sold Quantity
+      </div>
+      <div style="background-color:  rgb(241, 173, 173); font-weight: bold;" class="col">
+        Actual Available Quantity
+      </div>
+    </div>
+    {% for i in invList %}
+    <div class="row">
+      <div class="col">
+        {{i.model_number}}
+      </div>
+      <div class="col">
+        {{i.model_name}}
+      </div>
+      <div class="col">
+        {{i.sold_quantity}}
+      </div>
+      <div class="col">
+        {{i.actual_avb_quantity}}
+      </div>
+    </div>
+    {% endfor %}
+   </div>  
+{% endblock %}  

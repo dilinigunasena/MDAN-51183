@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<!-- <form method="post" action="{% url 'store' %}" enctype="multipart/form-data">
+    {%csrf_token%}
+    {{form.errors}} 
+    <br>
+    <div class="mb-3">
+        <label for="input" class="form-label">Model Number</label>
+        <input type="text" class="form-control" name="modelnumber" placeholder="modelnumber" maxlength="25" required>            
+    </div>
+    <div class="mb-3">
+        <label for="input" class="form-label">Model Name</label>
+        <input type="text" class="form-control" name="modelname" placeholder="modelname" maxlength="25" required>            
+    </div>
+    <div class="mb-3">
+        <label for="input" class="form-label">Make</label>
+        <input type="text" class="form-control" name="make" placeholder="make" maxlength="10"  required>            
+    </div>
+    <div class="mb-3">
+        <label for="input" class="form-label">Year of Manufacture</label>
+        <input type="date" class="form-control" name="yom" placeholder="yom">            
+    </div>
+    <div class="mb-3">
+        <label for="input" class="form-label">Price</label>
+        <input type="number" class="form-control" name="price" placeholder="price">            
+    </div>
+    <div class="mb-3">
+        <label for="input" class="form-label">Quantity</label>
+        <input type="number" class="form-control" name="quantity" placeholder="quantity">            
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form> -->  
+<form method="post" action="{% url 'store' %}" enctype="multipart/form-data" class="mt-5">
+    {% csrf_token %}
+    <!-- {% crispy form %} -->
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-secondary" style="text-align: center;">INSERT</button>
+</form>
+  
+
+  
+
+
+
+{% endblock %}        
+  
+

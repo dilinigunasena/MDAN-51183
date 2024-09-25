@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid text-center mt-5">
+    <div class="row">
+      <div style="background-color: rgb(172, 169, 169); font-weight: bold; border: 1cm;" class="col">
+        Model Number
+      </div>
+      <div style="background-color:  rgb(172, 169, 169); font-weight: bold;" class="col">
+        Model Name
+      </div>
+      <div style="background-color:  rgb(172, 169, 169); font-weight: bold;" class="col">
+        Make
+      </div>     
+      <div style="background-color: rgb(172, 169, 169); font-weight: bold;" class="col">
+        Unit Price (LKR)
+      </div>      
+      <div style="background-color:  rgb(172, 169, 169); font-weight: bold;" class="col">
+        Sold Quantity
+      </div>
+      <div style="background-color: rgb(173, 138, 138); font-weight: bold;" class="col">
+        Sale Value (LKR)
+      </div>
+    </div>
+    {% for k in sold_list %}
+    <div class="row">
+        <div class="col"> 
+          {{k.model_number}} 
+        </div>
+        <div class="col">
+          {{k.model_name}}
+        </div>
+        <div class="col">
+          {{k.make}}
+        </div>        
+        <div class="col">
+          {{k.unit_price}}
+        </div>        
+        <div class="col">
+          {{k.quantity_sold}}
+        </div>       
+        <div class="col">
+          {{k.sale_value}}
+        </div>        
+      </div>
+    {% endfor %}
+    <br>
+    <div class="row" style="font-weight: bold; ">
+      <div class="col-lg-10">
+        Total Sales Amount (LKR)
+      </div>
+      <div class="col" style="text-align: center;">
+        {{total}}
+      </div>
+     </div>
+</div>
+{% endblock %}

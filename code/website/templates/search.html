@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% block content %}
+<!-- serching from a databse by passing values to a form -->
+<form method="post" action="{% url 'search' %}" enctype="multipart/form-data" class="mt-5">
+    {% csrf_token %}  
+    <!-- {% crispy form %} -->  
+    {{form.as_p}} 
+    <button type="submit" class="btn btn-secondary" style="text-align: center;">SEARCH</button>
+</form>
+
+<div class="container text-center mt-5">
+    <div class="row">
+        <div style="background-color: rgb(172, 169, 169); font-weight: bold; border: 1cm;" class="col">
+          Model Number
+        </div>
+        <div style="background-color:  rgb(172, 169, 169); font-weight: bold;" class="col">
+          Model Name
+        </div>
+        <div style="background-color:  rgb(172, 169, 169); font-weight: bold;" class="col">
+          Make
+        </div>
+        <div style="background-color:  rgb(172, 169, 169); font-weight: bold;" class="col">
+          YOM
+        </div>
+        <div style="background-color: rgb(172, 169, 169); font-weight: bold;" class="col">
+          Unit Price (LKR)
+        </div>
+        <div style="background-color:  rgb(172, 169, 169); font-weight: bold;" class="col">
+          Initial Quantity
+        </div>
+        <div style="background-color: rgb(173, 138, 138); font-weight: bold;" class="col">
+          Sold Quantity
+        </div>
+      </div>
+      {% if search_obj %}
+    {% for i in search_obj %}
+    <div class="row">        
+        <div class="col">
+            {{ i.model_number }}
+        </div>
+        <div class="col">
+            {{ i.model_name }}
+        </div>
+        <div class="col">
+            {{ i.make }}
+        </div>
+        <div class="col">
+            {{ i.yom }}
+        </div>
+        <div class="col">
+            {{ i.unit_price }}
+        </div>
+        <div class="col">
+            {{ i.quantity_avl }}
+        </div>
+        <div class="col">
+            {{ i.quantity_sold }}
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    <p>No results found.</p>
+{% endif %}
+</div>
+{% endblock %}
